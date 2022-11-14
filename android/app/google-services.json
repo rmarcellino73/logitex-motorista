@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "87992355357",
+    "project_id": "logitexmotorista",
+    "storage_bucket": "logitexmotorista.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87992355357:android:18866d42915a0783bd94f4",
+        "android_client_info": {
+          "package_name": "com.rrsistemas.logitexapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87992355357-9nealks83es5ui486ct0135m52kvahfo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rrsistemas.logitexapp",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "87992355357-rb20qqpsiahe4s9obca3cjq8a4359dde.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCejsQJKjJqfAaJ1PPKizpfZElR-gnMR1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87992355357-rb20qqpsiahe4s9obca3cjq8a4359dde.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "87992355357-coq8bjeeaov279urdordboqnekotai9l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rrsistemas.onboardingflow"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87992355357:android:8bb4bd781205eb19bd94f4",
+        "android_client_info": {
+          "package_name": "com.rrsistemas.onboardingflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87992355357-ds0hpb0u3s4qmcmk8u7gtoirn8l37um1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rrsistemas.onboardingflow",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "87992355357-rb20qqpsiahe4s9obca3cjq8a4359dde.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCejsQJKjJqfAaJ1PPKizpfZElR-gnMR1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87992355357-rb20qqpsiahe4s9obca3cjq8a4359dde.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "87992355357-coq8bjeeaov279urdordboqnekotai9l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rrsistemas.onboardingflow"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
