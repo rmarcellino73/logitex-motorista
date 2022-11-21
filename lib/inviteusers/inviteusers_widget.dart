@@ -20,7 +20,7 @@ class _InviteusersWidgetState extends State<InviteusersWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFD3F36B),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -48,10 +48,10 @@ class _InviteusersWidgetState extends State<InviteusersWidget> {
                               ),
                               InkWell(
                                 onTap: () async {
-                                  context.pushNamed('menu');
+                                  context.pushNamed('allchats');
                                 },
                                 child: Icon(
-                                  Icons.menu,
+                                  Icons.arrow_back,
                                   color: Color(0xFF2F3437),
                                   size: 24,
                                 ),
@@ -65,12 +65,14 @@ class _InviteusersWidgetState extends State<InviteusersWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Com quem deseja conversar?',
+                                  'Com quem deseja\nconversar?',
                                   style: FlutterFlowTheme.of(context)
                                       .subtitle1
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF17191A),
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w300,
                                       ),
                                 ),
                               ],
@@ -149,7 +151,7 @@ class _InviteusersWidgetState extends State<InviteusersWidget> {
                                             )
                                           ],
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(8),
                                           shape: BoxShape.rectangle,
                                         ),
                                         child: Padding(
@@ -171,7 +173,7 @@ class _InviteusersWidgetState extends State<InviteusersWidget> {
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         color:
-                                                            Color(0xFF3662D7),
+                                                            Color(0xFF2E3335),
                                                         fontSize: 15,
                                                         fontWeight:
                                                             FontWeight.w500,

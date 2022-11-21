@@ -136,7 +136,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                             width: 100,
                             height: 50,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Color(0xFF656966),
                               boxShadow: [
                                 BoxShadow(
                                   blurRadius: 4,
@@ -144,7 +144,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                   offset: Offset(0, 2),
                                 )
                               ],
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             child: Padding(
                               padding:
@@ -158,7 +158,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Poppins',
-                                          color: Color(0xFF2E3335),
+                                          color: Color(0xFFDBDFE1),
                                           fontSize: 16,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -169,7 +169,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Poppins',
-                                          color: Color(0xFF2E3335),
+                                          color: Color(0xFFDBDFE1),
                                           fontSize: 20,
                                         ),
                                   ),
@@ -320,7 +320,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                       ],
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12),
+                                                              8),
                                                     ),
                                                     child: Row(
                                                       mainAxisSize:
@@ -739,14 +739,22 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                   coletados[coletadosIndex];
                                               return Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 8),
+                                                    .fromSTEB(0, 0, 0, 15),
                                                 child: Container(
                                                   width: double.infinity,
                                                   decoration: BoxDecoration(
                                                     color: Colors.white,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 4,
+                                                        color:
+                                                            Color(0x33000000),
+                                                        offset: Offset(0, 2),
+                                                      )
+                                                    ],
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12),
+                                                            8),
                                                     border: Border.all(
                                                       color: Color(0xFFF1F4F8),
                                                       width: 2,

@@ -21,7 +21,7 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFD3F36B),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -49,10 +49,10 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                               ),
                               InkWell(
                                 onTap: () async {
-                                  context.pushNamed('menu');
+                                  context.pushNamed('inicial');
                                 },
                                 child: Icon(
-                                  Icons.menu,
+                                  Icons.arrow_back,
                                   color: Color(0xFF2F3437),
                                   size: 24,
                                 ),
@@ -72,23 +72,29 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF17191A),
-                                        fontSize: 15,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.normal,
                                       ),
-                                ),
-                                AuthUserStreamWidget(
-                                  child: Text(
-                                    currentUserDisplayName,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF3662D7),
-                                          fontSize: 15,
-                                        ),
-                                  ),
                                 ),
                               ],
                             ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              AuthUserStreamWidget(
+                                child: Text(
+                                  currentUserDisplayName,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF2E3335),
+                                        fontSize: 15,
+                                      ),
+                                ),
+                              ),
+                            ],
                           ),
                           Padding(
                             padding:
@@ -103,6 +109,8 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF17191A),
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w300,
                                       ),
                                 ),
                               ],

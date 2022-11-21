@@ -74,6 +74,7 @@ class _ChatconversaWidgetState extends State<ChatconversaWidget> {
         title: SelectionArea(
             child: Text(
           FFAppState().chatnomeuser,
+          textAlign: TextAlign.start,
           style: FlutterFlowTheme.of(context).bodyText1.override(
                 fontFamily: 'Poppins',
                 color: Color(0xFF2E3335),
@@ -93,7 +94,7 @@ class _ChatconversaWidgetState extends State<ChatconversaWidget> {
               ? FFChatPage(
                   chatInfo: snapshot.data!,
                   allowImages: true,
-                  backgroundColor: Color(0xFFDBDFE1),
+                  backgroundColor: Color(0xFFD3F36B),
                   timeDisplaySetting: TimeDisplaySetting.visibleOnTap,
                   currentUserBoxDecoration: BoxDecoration(
                     color: Colors.white,
@@ -103,7 +104,7 @@ class _ChatconversaWidgetState extends State<ChatconversaWidget> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   otherUsersBoxDecoration: BoxDecoration(
-                    color: Color(0xFF4B39EF),
+                    color: Color(0xFF656966),
                     border: Border.all(
                       color: Colors.transparent,
                     ),

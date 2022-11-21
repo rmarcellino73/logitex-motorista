@@ -21,7 +21,7 @@ class _AllchatsWidgetState extends State<AllchatsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFD3F36B),
       appBar: AppBar(
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
@@ -45,7 +45,7 @@ class _AllchatsWidgetState extends State<AllchatsWidget> {
                 fontFamily: 'Poppins',
                 color: Color(0xFF2E3335),
                 fontSize: 18,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
               ),
         ),
         actions: [
@@ -56,7 +56,7 @@ class _AllchatsWidgetState extends State<AllchatsWidget> {
             buttonSize: 60,
             icon: Icon(
               Icons.person_add_alt_1,
-              color: Color(0xFF2E3335),
+              color: Color(0xFF393636),
               size: 30,
             ),
             onPressed: () async {
@@ -97,64 +97,67 @@ class _AllchatsWidgetState extends State<AllchatsWidget> {
                 itemBuilder: (context, listViewIndex) {
                   final listViewChatsRecord =
                       listViewChatsRecordList[listViewIndex];
-                  return StreamBuilder<FFChatInfo>(
-                    stream: FFChatManager.instance
-                        .getChatInfo(chatRecord: listViewChatsRecord),
-                    builder: (context, snapshot) {
-                      final chatInfo =
-                          snapshot.data ?? FFChatInfo(listViewChatsRecord);
-                      return FFChatPreview(
-                        onTap: () => context.pushNamed(
-                          'chatconversa',
-                          queryParams: {
-                            'chatUser': serializeParam(
-                              chatInfo.otherUsers.length == 1
+                  return Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 10, 15, 0),
+                    child: StreamBuilder<FFChatInfo>(
+                      stream: FFChatManager.instance
+                          .getChatInfo(chatRecord: listViewChatsRecord),
+                      builder: (context, snapshot) {
+                        final chatInfo =
+                            snapshot.data ?? FFChatInfo(listViewChatsRecord);
+                        return FFChatPreview(
+                          onTap: () => context.pushNamed(
+                            'chatconversa',
+                            queryParams: {
+                              'chatUser': serializeParam(
+                                chatInfo.otherUsers.length == 1
+                                    ? chatInfo.otherUsersList.first
+                                    : null,
+                                ParamType.Document,
+                              ),
+                              'chatRef': serializeParam(
+                                chatInfo.chatRecord.reference,
+                                ParamType.DocumentReference,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              'chatUser': chatInfo.otherUsers.length == 1
                                   ? chatInfo.otherUsersList.first
                                   : null,
-                              ParamType.Document,
-                            ),
-                            'chatRef': serializeParam(
-                              chatInfo.chatRecord.reference,
-                              ParamType.DocumentReference,
-                            ),
-                          }.withoutNulls,
-                          extra: <String, dynamic>{
-                            'chatUser': chatInfo.otherUsers.length == 1
-                                ? chatInfo.otherUsersList.first
-                                : null,
-                          },
-                        ),
-                        lastChatText: chatInfo.chatPreviewMessage(),
-                        lastChatTime: listViewChatsRecord.lastMessageTime,
-                        seen: listViewChatsRecord.lastMessageSeenBy!
-                            .contains(currentUserReference),
-                        title: chatInfo.chatPreviewTitle(),
-                        userProfilePic: chatInfo.chatPreviewPic(),
-                        color: Color(0xFFEEF0F5),
-                        unreadColor: Colors.blue,
-                        titleTextStyle: GoogleFonts.getFont(
-                          'DM Sans',
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        ),
-                        dateTextStyle: GoogleFonts.getFont(
-                          'DM Sans',
-                          color: Color(0x73000000),
-                          fontWeight: FontWeight.normal,
-                          fontSize: 14,
-                        ),
-                        previewTextStyle: GoogleFonts.getFont(
-                          'DM Sans',
-                          color: Color(0x73000000),
-                          fontWeight: FontWeight.normal,
-                          fontSize: 14,
-                        ),
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(3, 3, 3, 3),
-                        borderRadius: BorderRadius.circular(0),
-                      );
-                    },
+                            },
+                          ),
+                          lastChatText: chatInfo.chatPreviewMessage(),
+                          lastChatTime: listViewChatsRecord.lastMessageTime,
+                          seen: listViewChatsRecord.lastMessageSeenBy!
+                              .contains(currentUserReference),
+                          title: chatInfo.chatPreviewTitle(),
+                          userProfilePic: chatInfo.chatPreviewPic(),
+                          color: Color(0xFFF7F6F0),
+                          unreadColor: Colors.blue,
+                          titleTextStyle: GoogleFonts.getFont(
+                            'Poppins',
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                          ),
+                          dateTextStyle: GoogleFonts.getFont(
+                            'DM Sans',
+                            color: Color(0x73000000),
+                            fontWeight: FontWeight.normal,
+                            fontSize: 14,
+                          ),
+                          previewTextStyle: GoogleFonts.getFont(
+                            'DM Sans',
+                            color: Color(0x73000000),
+                            fontWeight: FontWeight.normal,
+                            fontSize: 14,
+                          ),
+                          contentPadding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          borderRadius: BorderRadius.circular(8),
+                        );
+                      },
+                    ),
                   );
                 },
               );
