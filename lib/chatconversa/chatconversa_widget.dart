@@ -144,7 +144,7 @@ class _ChatconversaWidgetState extends State<ChatconversaWidget> {
                     width: 50,
                     height: 50,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: Color(0xFF656966),
                     ),
                   ),
                 ),

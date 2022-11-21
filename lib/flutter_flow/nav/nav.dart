@@ -303,9 +303,9 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
+                  color: Color(0xFFD3F36B),
                   child: Image.asset(
-                    'assets/images/splash.png',
+                    'assets/images/wallpaper.svg',
                     fit: BoxFit.cover,
                   ),
                 )

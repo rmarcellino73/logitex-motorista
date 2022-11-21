@@ -59,7 +59,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
               width: 50,
               height: 50,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: Color(0xFF656966),
               ),
             ),
           );
@@ -68,7 +68,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
         return Scaffold(
           key: scaffoldKey,
           resizeToAvoidBottomInset: false,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFFD3F36B),
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
@@ -78,25 +78,6 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                            onTap: () async {
-                              context.pushNamed('inicial');
-                            },
-                            child: Icon(
-                              Icons.arrow_back,
-                              color: Color(0xFF2F3437),
-                              size: 24,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,10 +87,20 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
+                        InkWell(
+                          onTap: () async {
+                            context.pushNamed('inicial');
+                          },
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Color(0xFF2F3437),
+                            size: 24,
+                          ),
+                        ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -125,7 +116,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -157,18 +148,19 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                             ),
                             child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                                  EdgeInsetsDirectional.fromSTEB(15, 0, 10, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'Tota  coletado:  ',
+                                    'Total  coletado:  ',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Poppins',
-                                          color: Color(0xFF354088),
+                                          color: Color(0xFF2E3335),
                                           fontSize: 16,
+                                          fontWeight: FontWeight.normal,
                                         ),
                                   ),
                                   Text(
@@ -177,7 +169,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Poppins',
-                                          color: Color(0xFF354088),
+                                          color: Color(0xFF2E3335),
                                           fontSize: 20,
                                         ),
                                   ),
@@ -318,6 +310,14 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                     ),
                                                     decoration: BoxDecoration(
                                                       color: Color(0xFFE9E9E9),
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          blurRadius: 4,
+                                                          color:
+                                                              Color(0x33000000),
+                                                          offset: Offset(0, 2),
+                                                        )
+                                                      ],
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               12),
@@ -397,15 +397,8 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                         width: 1,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              0),
                                                     ),
                                                     focusedBorder:
                                                         UnderlineInputBorder(
@@ -415,51 +408,30 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                         width: 1,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              0),
                                                     ),
                                                     errorBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            Color(0x00000000),
+                                                            Color(0xFFC93636),
                                                         width: 1,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              0),
                                                     ),
                                                     focusedErrorBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
-                                                            Color(0x00000000),
+                                                            Color(0xFFC93636),
                                                         width: 1,
                                                       ),
                                                       borderRadius:
-                                                          const BorderRadius
-                                                              .only(
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                4.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                4.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              0),
                                                     ),
                                                     filled: true,
                                                   ),
@@ -469,7 +441,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color:
-                                                            Color(0xFF17191A),
+                                                            Color(0xFF2E3335),
                                                       ),
                                                   keyboardType:
                                                       const TextInputType
@@ -721,10 +693,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                     text: 'Finalizar coleta',
                                                     options: FFButtonOptions(
                                                       height: 40,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryColor,
+                                                      color: Color(0xFF656966),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)

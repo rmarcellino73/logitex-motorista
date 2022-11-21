@@ -20,7 +20,7 @@ class _InicialWidgetState extends State<InicialWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFD3F36B),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -50,10 +50,10 @@ class _InicialWidgetState extends State<InicialWidget> {
                                 onTap: () async {
                                   context.pushNamed('menu');
                                 },
-                                child: Icon(
-                                  Icons.menu,
-                                  color: Color(0xFF2F3437),
-                                  size: 24,
+                                child: SvgPicture.asset(
+                                  'assets/images/ic-menu.svg',
+                                  width: 25,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ],
@@ -65,35 +65,42 @@ class _InicialWidgetState extends State<InicialWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Olá, ',
+                                  'Seja bem vindo, ',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF17191A),
-                                        fontSize: 15,
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.normal,
                                       ),
-                                ),
-                                AuthUserStreamWidget(
-                                  child: Text(
-                                    currentUserDisplayName,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF3662D7),
-                                          fontSize: 15,
-                                        ),
-                                  ),
                                 ),
                               ],
                             ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              AuthUserStreamWidget(
+                                child: Text(
+                                  currentUserDisplayName,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF2E3335),
+                                        fontSize: 15,
+                                      ),
+                                ),
+                              ),
+                            ],
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   'Clientes a coletar',
@@ -102,7 +109,25 @@ class _InicialWidgetState extends State<InicialWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF17191A),
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w300,
                                       ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12, 0, 0, 0),
+                                  child: Text(
+                                    dateTimeFormat(
+                                        'd/M/y', getCurrentTimestamp),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText2
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: Color(0xFF2E3335),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -128,8 +153,7 @@ class _InicialWidgetState extends State<InicialWidget> {
                                     width: 50,
                                     height: 50,
                                     child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color: Color(0xFF656966),
                                     ),
                                   ),
                                 );
@@ -163,17 +187,13 @@ class _InicialWidgetState extends State<InicialWidget> {
                                         width: double.infinity,
                                         height: 60,
                                         decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 5,
-                                              color: Color(0x3416202A),
-                                              offset: Offset(0, 2),
-                                            )
-                                          ],
+                                          color: Color(0xFFF7F6F0),
                                           borderRadius:
                                               BorderRadius.circular(12),
                                           shape: BoxShape.rectangle,
+                                          border: Border.all(
+                                            color: Color(0xFF656966),
+                                          ),
                                         ),
                                         child: Padding(
                                           padding:
@@ -194,7 +214,7 @@ class _InicialWidgetState extends State<InicialWidget> {
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         color:
-                                                            Color(0xFF3662D7),
+                                                            Color(0xFF2E3335),
                                                         fontSize: 15,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -218,7 +238,7 @@ class _InicialWidgetState extends State<InicialWidget> {
                                                             Color(0xFF57636C),
                                                         fontSize: 14,
                                                         fontWeight:
-                                                            FontWeight.w500,
+                                                            FontWeight.normal,
                                                       ),
                                                 ),
                                               ),
@@ -230,7 +250,7 @@ class _InicialWidgetState extends State<InicialWidget> {
                                                   child: Icon(
                                                     Icons.arrow_forward_ios,
                                                     color: Color(0xFF57636C),
-                                                    size: 18,
+                                                    size: 13,
                                                   ),
                                                 ),
                                               ),

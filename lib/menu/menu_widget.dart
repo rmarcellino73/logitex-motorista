@@ -19,7 +19,7 @@ class _MenuWidgetState extends State<MenuWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFD3F36B),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -56,26 +56,31 @@ class _MenuWidgetState extends State<MenuWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'Olá, ',
+                        'Seja bem vindo, ',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Color(0xFF17191A),
-                              fontSize: 15,
+                              fontSize: 13,
+                              fontWeight: FontWeight.normal,
                             ),
-                      ),
-                      AuthUserStreamWidget(
-                        child: Text(
-                          currentUserDisplayName,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF3662D7),
-                                    fontSize: 15,
-                                  ),
-                        ),
                       ),
                     ],
                   ),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    AuthUserStreamWidget(
+                      child: Text(
+                        currentUserDisplayName,
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: Color(0xFF2E3335),
+                              fontSize: 15,
+                            ),
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
@@ -100,7 +105,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   width: MediaQuery.of(context).size.width,
                                   height: 50,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: Color(0xFFF7F6F0),
                                     boxShadow: [
                                       BoxShadow(
                                         blurRadius: 3,
@@ -120,7 +125,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           width: 4,
                                           height: 90,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF4B39EF),
+                                            color: Color(0xFF2E3335),
                                             borderRadius:
                                                 BorderRadius.circular(4),
                                           ),
@@ -142,8 +147,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                                                   .override(
                                                     fontFamily: 'Outfit',
                                                     color: Color(0xFF101213),
-                                                    fontSize: 22,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w300,
                                                   ),
                                             ),
                                           ],
@@ -165,7 +170,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   width: MediaQuery.of(context).size.width,
                                   height: 50,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: Color(0xFFF7F6F0),
                                     boxShadow: [
                                       BoxShadow(
                                         blurRadius: 3,
@@ -185,7 +190,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           width: 4,
                                           height: 90,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF4B39EF),
+                                            color: Color(0xFF2E3335),
                                             borderRadius:
                                                 BorderRadius.circular(4),
                                           ),
@@ -207,8 +212,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                                                   .override(
                                                     fontFamily: 'Outfit',
                                                     color: Color(0xFF101213),
-                                                    fontSize: 22,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w300,
                                                   ),
                                             ),
                                           ],
@@ -233,7 +238,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   width: MediaQuery.of(context).size.width,
                                   height: 50,
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
+                                    color: Color(0xFFF7F6F0),
                                     boxShadow: [
                                       BoxShadow(
                                         blurRadius: 3,
@@ -253,7 +258,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           width: 4,
                                           height: 90,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF4B39EF),
+                                            color: Color(0xFF2E3335),
                                             borderRadius:
                                                 BorderRadius.circular(4),
                                           ),
@@ -275,8 +280,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                                                   .override(
                                                     fontFamily: 'Outfit',
                                                     color: Color(0xFF101213),
-                                                    fontSize: 22,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w300,
                                                   ),
                                             ),
                                           ],

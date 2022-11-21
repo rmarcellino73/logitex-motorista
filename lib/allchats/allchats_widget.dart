@@ -21,6 +21,7 @@ class _AllchatsWidgetState extends State<AllchatsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
@@ -83,7 +84,7 @@ class _AllchatsWidgetState extends State<AllchatsWidget> {
                     width: 50,
                     height: 50,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: Color(0xFF656966),
                     ),
                   ),
                 );

@@ -37,7 +37,6 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Column(
@@ -47,12 +46,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF3662D7), Color(0xFF132450)],
-                    stops: [0, 1],
-                    begin: AlignmentDirectional(0, -1),
-                    end: AlignmentDirectional(0, 1),
-                  ),
+                  color: Color(0xFFD3F36B),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -80,7 +74,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             'Login',
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Poppins',
-                                  color: Color(0xFFCDCDCD),
+                                  color: Color(0xFF2E3335),
                                 ),
                           ),
                         ],
@@ -93,13 +87,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                         children: [
                           Expanded(
                             child: Text(
-                              'Entre com os dados de acesso para entrar no sistema',
+                              'Entre com os dados de acesso\npara entrar no sistema',
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Poppins',
-                                    color: Colors.white,
+                                    color: Color(0xFF2E3335),
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -123,18 +117,19 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     .bodyText2
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color: Color(0xFFCDCDCD),
+                                      color: Color(0xFF2E3335),
+                                      fontWeight: FontWeight.normal,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Color(0xFFCDCDCD),
+                                    color: Color(0xFF2E3335),
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(9),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Color(0xFFCDCDCD),
+                                    color: Color(0xFF2E3335),
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(9),
@@ -155,14 +150,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                                 prefixIcon: Icon(
                                   Icons.mail,
-                                  color: Colors.white,
+                                  color: Color(0xFF656966),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Poppins',
-                                    color: Color(0xFFCDCDCD),
+                                    color: Color(0xFF2E3335),
                                   ),
                               keyboardType: TextInputType.emailAddress,
                             ),
@@ -187,18 +182,19 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     .bodyText2
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color: Color(0xFFCDCDCD),
+                                      color: Color(0xFF2E3335),
+                                      fontWeight: FontWeight.normal,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Color(0xFFCDCDCD),
+                                    color: Color(0xFF656966),
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(9),
                                 ),
                                 focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Color(0xFFCDCDCD),
+                                    color: Color(0xFF656966),
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(9),
@@ -219,14 +215,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 ),
                                 prefixIcon: Icon(
                                   Icons.lock_rounded,
-                                  color: Colors.white,
+                                  color: Color(0xFF656966),
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Poppins',
-                                    color: Color(0xFFCDCDCD),
+                                    color: Color(0xFF2E3335),
                                   ),
                             ),
                           ),
@@ -244,7 +240,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
-                                      color: Color(0xFFB0B01B),
+                                      color: Color(0xFF7F8FA4),
                                     ),
                           ),
                           FFButtonWidget(
@@ -286,7 +282,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             options: FFButtonOptions(
                               width: 130,
                               height: 40,
-                              color: Color(0xFF3662D7),
+                              color: Color(0xFF7F8FA4),
                               textStyle: FlutterFlowTheme.of(context)
                                   .subtitle2
                                   .override(
