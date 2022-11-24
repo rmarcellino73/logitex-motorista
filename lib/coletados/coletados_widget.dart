@@ -6,15 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ClientescoletadosWidget extends StatefulWidget {
-  const ClientescoletadosWidget({Key? key}) : super(key: key);
+class ColetadosWidget extends StatefulWidget {
+  const ColetadosWidget({Key? key}) : super(key: key);
 
   @override
-  _ClientescoletadosWidgetState createState() =>
-      _ClientescoletadosWidgetState();
+  _ColetadosWidgetState createState() => _ColetadosWidgetState();
 }
 
-class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
+class _ColetadosWidgetState extends State<ColetadosWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -101,6 +100,7 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
                                   'Clientes coletados',
@@ -112,6 +112,22 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                         fontSize: 22,
                                         fontWeight: FontWeight.w300,
                                       ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12, 0, 0, 0),
+                                  child: Text(
+                                    dateTimeFormat(
+                                        'd/M/y', getCurrentTimestamp),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText2
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: Color(0xFF2E3335),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -127,7 +143,7 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                           StreamBuilder<List<ColetasRecord>>(
                             stream: queryColetasRecord(
                               queryBuilder: (coletasRecord) => coletasRecord
-                                  .where('totalcoletado', isNotEqualTo: 0)
+                                  .where('coletado', isEqualTo: 1)
                                   .orderBy('data'),
                             ),
                             builder: (context, snapshot) {
@@ -158,8 +174,13 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                         0, 0, 0, 15),
                                     child: InkWell(
                                       onTap: () async {
+                                        setState(() =>
+                                            FFAppState().totalcoletadoEdit =
+                                                listViewColetasRecord
+                                                    .totalcoletado!);
+
                                         context.pushNamed(
-                                          'detalheColeta',
+                                          'detalheColetaEdit',
                                           queryParams: {
                                             'coletaselecionada': serializeParam(
                                               listViewColetasRecord.reference,
@@ -172,17 +193,13 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                         width: double.infinity,
                                         height: 60,
                                         decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 5,
-                                              color: Color(0x3416202A),
-                                              offset: Offset(0, 2),
-                                            )
-                                          ],
+                                          color: Color(0xFFF7F6F0),
                                           borderRadius:
                                               BorderRadius.circular(12),
                                           shape: BoxShape.rectangle,
+                                          border: Border.all(
+                                            color: Color(0xFF656966),
+                                          ),
                                         ),
                                         child: Padding(
                                           padding:
@@ -203,7 +220,7 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         color:
-                                                            Color(0xFF3662D7),
+                                                            Color(0xFF2E3335),
                                                         fontSize: 15,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -227,7 +244,7 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                                             Color(0xFF57636C),
                                                         fontSize: 14,
                                                         fontWeight:
-                                                            FontWeight.w500,
+                                                            FontWeight.normal,
                                                       ),
                                                 ),
                                               ),
@@ -239,7 +256,7 @@ class _ClientescoletadosWidgetState extends State<ClientescoletadosWidget> {
                                                   child: Icon(
                                                     Icons.arrow_forward_ios,
                                                     color: Color(0xFF57636C),
-                                                    size: 18,
+                                                    size: 13,
                                                   ),
                                                 ),
                                               ),

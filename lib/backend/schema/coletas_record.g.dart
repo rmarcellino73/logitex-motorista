@@ -62,6 +62,12 @@ class _$ColetasRecordSerializer implements StructuredSerializer<ColetasRecord> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
+    value = object.coletado;
+    if (value != null) {
+      result
+        ..add('coletado')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -111,6 +117,10 @@ class _$ColetasRecordSerializer implements StructuredSerializer<ColetasRecord> {
                       BuiltList, const [const FullType(String)]))!
               as BuiltList<Object?>);
           break;
+        case 'coletado':
+          result.coletado = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -138,6 +148,8 @@ class _$ColetasRecord extends ColetasRecord {
   @override
   final BuiltList<String>? objetosbipados;
   @override
+  final int? coletado;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$ColetasRecord([void Function(ColetasRecordBuilder)? updates]) =>
@@ -150,6 +162,7 @@ class _$ColetasRecord extends ColetasRecord {
       this.data,
       this.totalcoletado,
       this.objetosbipados,
+      this.coletado,
       this.ffRef})
       : super._();
 
@@ -170,6 +183,7 @@ class _$ColetasRecord extends ColetasRecord {
         data == other.data &&
         totalcoletado == other.totalcoletado &&
         objetosbipados == other.objetosbipados &&
+        coletado == other.coletado &&
         ffRef == other.ffRef;
   }
 
@@ -179,11 +193,13 @@ class _$ColetasRecord extends ColetasRecord {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, cliente.hashCode), idcliente.hashCode),
-                        local.hashCode),
-                    data.hashCode),
-                totalcoletado.hashCode),
-            objetosbipados.hashCode),
+                    $jc(
+                        $jc($jc($jc(0, cliente.hashCode), idcliente.hashCode),
+                            local.hashCode),
+                        data.hashCode),
+                    totalcoletado.hashCode),
+                objetosbipados.hashCode),
+            coletado.hashCode),
         ffRef.hashCode));
   }
 
@@ -196,6 +212,7 @@ class _$ColetasRecord extends ColetasRecord {
           ..add('data', data)
           ..add('totalcoletado', totalcoletado)
           ..add('objetosbipados', objetosbipados)
+          ..add('coletado', coletado)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -232,6 +249,10 @@ class ColetasRecordBuilder
   set objetosbipados(ListBuilder<String>? objetosbipados) =>
       _$this._objetosbipados = objetosbipados;
 
+  int? _coletado;
+  int? get coletado => _$this._coletado;
+  set coletado(int? coletado) => _$this._coletado = coletado;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -249,6 +270,7 @@ class ColetasRecordBuilder
       _data = $v.data;
       _totalcoletado = $v.totalcoletado;
       _objetosbipados = $v.objetosbipados?.toBuilder();
+      _coletado = $v.coletado;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -280,6 +302,7 @@ class ColetasRecordBuilder
               data: data,
               totalcoletado: totalcoletado,
               objetosbipados: _objetosbipados?.build(),
+              coletado: coletado,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

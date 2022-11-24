@@ -35,8 +35,8 @@ class _AllchatsWidgetState extends State<AllchatsWidget> {
             color: Color(0xFF2E3335),
             size: 24,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            context.pushNamed('inicial');
           },
         ),
         title: Text(

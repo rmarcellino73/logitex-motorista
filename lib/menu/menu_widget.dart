@@ -56,7 +56,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'Seja bem vindo, ',
+                        'Olá, ',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Color(0xFF17191A),
@@ -99,7 +99,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  context.pushNamed('clientescoletados');
+                                  context.pushNamed('coletados');
                                 },
                                 child: Container(
                                   width: MediaQuery.of(context).size.width,

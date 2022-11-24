@@ -23,6 +23,8 @@ class FFAppState {
   List<String> scaneado = [];
 
   String chatnomeuser = '';
+
+  int totalcoletadoEdit = 0;
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -12,8 +12,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 
-class DetalheColetaWidget extends StatefulWidget {
-  const DetalheColetaWidget({
+class DetalheColetaEditWidget extends StatefulWidget {
+  const DetalheColetaEditWidget({
     Key? key,
     this.coletaselecionada,
   }) : super(key: key);
@@ -21,10 +21,11 @@ class DetalheColetaWidget extends StatefulWidget {
   final DocumentReference? coletaselecionada;
 
   @override
-  _DetalheColetaWidgetState createState() => _DetalheColetaWidgetState();
+  _DetalheColetaEditWidgetState createState() =>
+      _DetalheColetaEditWidgetState();
 }
 
-class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
+class _DetalheColetaEditWidgetState extends State<DetalheColetaEditWidget> {
   AudioPlayer? soundPlayer;
   var scaneado = '';
   TextEditingController? avulsoController;
@@ -64,7 +65,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
             ),
           );
         }
-        final detalheColetaColetasRecord = snapshot.data!;
+        final detalheColetaEditColetasRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
           resizeToAvoidBottomInset: false,
@@ -105,7 +106,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            detalheColetaColetasRecord.cliente!,
+                            detalheColetaEditColetasRecord.cliente!,
                             style:
                                 FlutterFlowTheme.of(context).subtitle1.override(
                                       fontFamily: 'Poppins',
@@ -124,7 +125,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                         children: [
                           Text(
                             dateTimeFormat(
-                                'd/M/y', detalheColetaColetasRecord.data!),
+                                'd/M/y', detalheColetaEditColetasRecord.data!),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
@@ -170,7 +171,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                         ),
                                   ),
                                   Text(
-                                    FFAppState().totalcoletado.toString(),
+                                    FFAppState().totalcoletadoEdit.toString(),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
@@ -217,13 +218,14 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                   children: [
                                     Builder(builder: (context) {
                                       final _googleMapMarker =
-                                          detalheColetaColetasRecord;
+                                          detalheColetaEditColetasRecord;
                                       return FlutterFlowGoogleMap(
                                         controller: googleMapsController,
                                         onCameraIdle: (latLng) =>
                                             googleMapsCenter = latLng,
                                         initialLocation: googleMapsCenter ??=
-                                            detalheColetaColetasRecord.local!,
+                                            detalheColetaEditColetasRecord
+                                                .local!,
                                         markers: [
                                           FlutterFlowMarker(
                                             _googleMapMarker.reference.path,
@@ -491,9 +493,9 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                 child: InkWell(
                                                   onTap: () async {
                                                     setState(() => FFAppState()
-                                                            .totalcoletado =
+                                                            .totalcoletadoEdit =
                                                         FFAppState()
-                                                                .totalcoletado +
+                                                                .totalcoletadoEdit +
                                                             int.parse(
                                                                 avulsoController!
                                                                     .text));
@@ -645,9 +647,9 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                   child: InkWell(
                                                     onTap: () async {
                                                       setState(() => FFAppState()
-                                                              .totalcoletado =
+                                                              .totalcoletadoEdit =
                                                           FFAppState()
-                                                                  .totalcoletado +
+                                                                  .totalcoletadoEdit +
                                                               int.parse(
                                                                   reversoController!
                                                                       .text));
@@ -691,7 +693,7 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                             FFAppState()
                                                                 .scaneado,
                                                       };
-                                                      await detalheColetaColetasRecord
+                                                      await detalheColetaEditColetasRecord
                                                           .reference
                                                           .update(
                                                               coletasUpdateData);
@@ -762,7 +764,9 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                       child: Builder(
                                         builder: (context) {
                                           final coletados =
-                                              FFAppState().scaneado.toList();
+                                              detalheColetaEditColetasRecord
+                                                  .objetosbipados!
+                                                  .toList();
                                           return ListView.builder(
                                             padding: EdgeInsets.zero,
                                             shrinkWrap: true,
@@ -848,7 +852,11 @@ class _DetalheColetaWidgetState extends State<DetalheColetaWidget> {
                                                                       .start,
                                                               children: [
                                                                 Text(
-                                                                  coletadosItem,
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    coletadosItem,
+                                                                    'coletados',
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .subtitle1

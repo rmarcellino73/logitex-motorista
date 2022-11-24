@@ -22,6 +22,8 @@ abstract class ColetasRecord
 
   BuiltList<String>? get objetosbipados;
 
+  int? get coletado;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -30,7 +32,8 @@ abstract class ColetasRecord
     ..cliente = ''
     ..idcliente = ''
     ..totalcoletado = 0
-    ..objetosbipados = ListBuilder();
+    ..objetosbipados = ListBuilder()
+    ..coletado = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('coletas');
@@ -59,6 +62,7 @@ Map<String, dynamic> createColetasRecordData({
   LatLng? local,
   DateTime? data,
   int? totalcoletado,
+  int? coletado,
 }) {
   final firestoreData = serializers.toFirestore(
     ColetasRecord.serializer,
@@ -69,7 +73,8 @@ Map<String, dynamic> createColetasRecordData({
         ..local = local
         ..data = data
         ..totalcoletado = totalcoletado
-        ..objetosbipados = null,
+        ..objetosbipados = null
+        ..coletado = coletado,
     ),
   );
 

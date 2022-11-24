@@ -97,6 +97,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => LoginCopyWidget(),
             ),
             FFRoute(
+              name: 'coletados',
+              path: 'coletados',
+              builder: (context, params) => ColetadosWidget(),
+            ),
+            FFRoute(
               name: 'detalheColeta',
               path: 'detalheColeta',
               builder: (context, params) => DetalheColetaWidget(
@@ -105,9 +110,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'clientescoletados',
-              path: 'clientescoletados',
-              builder: (context, params) => ClientescoletadosWidget(),
+              name: 'detalheColetaEdit',
+              path: 'detalheColetaEdit',
+              builder: (context, params) => DetalheColetaEditWidget(
+                coletaselecionada: params.getParam('coletaselecionada',
+                    ParamType.DocumentReference, false, 'coletas'),
+              ),
+            ),
+            FFRoute(
+              name: 'inviteusers',
+              path: 'inviteusers',
+              builder: (context, params) => InviteusersWidget(),
             ),
             FFRoute(
               name: 'chatconversa',
@@ -125,11 +138,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'allchats',
               path: 'allchats',
               builder: (context, params) => AllchatsWidget(),
-            ),
-            FFRoute(
-              name: 'inviteusers',
-              path: 'inviteusers',
-              builder: (context, params) => InviteusersWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
